@@ -30,5 +30,6 @@ return {
   })
 
   vim.cmd([[autocmd VimEnter * NvimTreeOpen]])
+  vim.keymap.set('n', '<C-b>', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
   end
 }
