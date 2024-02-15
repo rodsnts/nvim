@@ -8,12 +8,38 @@ return {
   },
 
   config = function()
-      require('telescope').setup({})
+    require('telescope').setup({
+      pickers = {
+        find_files = {
+          hidden = true
+        }
+      },
+      extensions = {
+        file_browser = {
+          -- disables netrw and use telescope-file-browser in its place
+          hijack_netrw = true,
+          mappings = {
+            ["i"] = {
+              -- your custom insert mode mappings
+            },
+            ["n"] = {
+              -- your custom normal mode mappings
+            },
+          },
+        },
+      },
+    })
 
-      local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-      vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
-      vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+    vim.keymap.set('n', '<leader>ps', builtin.live_grep, {})
+    vim.api.nvim_set_keymap(
+      "n",
+      "<leader>fb",
+      ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+      { noremap = true }
+    )
+    vim.keymap.set('n', '<leader>b', builtin.buffers, {})
   end
 }
 
