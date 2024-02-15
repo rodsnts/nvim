@@ -9,8 +9,6 @@ vim.opt.mouse = nil
 
 vim.opt.hidden = true
 
-vim.api.nvim_set_keymap('t', '<C-\\>', '<C-\\><C-n>', {noremap = true})
-
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
