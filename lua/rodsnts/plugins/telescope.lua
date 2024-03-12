@@ -14,6 +14,12 @@ return {
           hidden = true
         }
       },
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules",
+          ".git"
+        }
+      },
       extensions = {
         file_browser = {
           -- disables netrw and use telescope-file-browser in its place
